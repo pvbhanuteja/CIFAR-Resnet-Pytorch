@@ -24,7 +24,7 @@ class Cifar(nn.Module):
         
         # define cross entropy loss and optimizer
         self.criterion = nn.CrossEntropyLoss()
-        self.optimizer = torch.optim.SGD(self.network.parameters(), lr=0.1,momentum=0.9, weight_decay=5e-4)
+        self.optimizer = torch.optim.SGD(self.network.parameters(), lr=0.1,momentum=0.9, weight_decay=self.config.weight_decay)
         self.scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer,step_size=10,gamma=0.1)
         # print(summary(model,(3, 32, 32)))
         
